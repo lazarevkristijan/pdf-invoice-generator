@@ -1,0 +1,2 @@
+when close main window, shut down app.
+when close only side windows, shut down only them, and no - are you sure -.

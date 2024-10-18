@@ -7,8 +7,8 @@ TEMPLATES = ['AUTO', 'MOTO', 'TRAILER', 'trattori nuovi']
 
 TEMPLATE_PLACEHOLDERS = {
     'AUTO': {
-        'FORD',
-        'BA7',
-        'MONDEO'
+        'Make': 'FORD',
+        'Type': 'BA7',
+        'Commercial Name': 'MONDEO'
     }
 }
