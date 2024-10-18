@@ -50,10 +50,10 @@ def openGenerateMenu():
 
         settings.replacementTextBoxes[key] = textBox
     
-    tk.Button(mainFrame, text='Generate', command=generatePDF).pack()
+    tk.Button(mainFrame, text='Generate', command=lambda: generatePDF(generateWindow)).pack()
 
 
-def generatePDF():
+def generatePDF(generateWindow):
     doc = fitz.open(settings.chosenFilePath)
 
     for pageNum in range(len(doc)):
@@ -71,13 +71,14 @@ def generatePDF():
 
         for index, placeholder in enumerate(templateValues):
             textInstances = page.search_for(placeholder)
-            page.add_redact_annot(textInstances[0], text=replacementValues[index], fill=(1,1,1))
+            page.add_redact_annot(textInstances[0], text=replacementValues[index], fill=(1,1,1), fontname='Arial', fontsize=15)
             page.apply_redactions()
         
         doc.save('newFile.pdf')
         doc.close()
 
         os.startfile('newFile.pdf')
+        generateWindow.destroy()
         
 
         
